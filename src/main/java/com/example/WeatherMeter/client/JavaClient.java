@@ -18,7 +18,7 @@ public class JavaClient {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Выберите действие: 1 - GET, 2 - POST --> ");
+        System.out.println("Select option: 1 - GET, 2 - POST --> ");
         int choice = scanner.nextInt();
 
         switch (choice) {
@@ -29,7 +29,7 @@ public class JavaClient {
                 postMethod();
                 break;
             default:
-                System.out.println("такого варианта нет!");
+                System.out.println("Incorrect option!");
                 break;
         }
     }
@@ -56,7 +56,7 @@ public class JavaClient {
     public static void postMethod() {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Введите количество вставок --> ");
+        System.out.println("Enter the count of measurements --> ");
         int inputs = scanner.nextInt();
         int tempInputs = inputs;
 
@@ -78,7 +78,7 @@ public class JavaClient {
             try {
                 restTemplatePost.postForObject(postMethodUrl, request, String.class);
             } catch (HttpClientErrorException e) {
-                System.out.println("Ошибка при создании измерения!");
+                System.out.println("Error during creating a measurement!");
                 System.out.println(e.getMessage());
             }
 
